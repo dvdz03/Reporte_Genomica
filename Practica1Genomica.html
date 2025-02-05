@@ -363,14 +363,15 @@ Segobia</h4>
 <p>En esta práctica se realizó un ejercicio manual de mapeo de
 secuencias de RNA contra un conjunto de reads impresos. Se comparó la
 eficiencia de este método con el método que podríamos utilizar en R.</p>
-<div id="materiales-y-métodos" class="section level2">
-<h2><strong>Materiales y métodos</strong></h2>
+<div id="materiales-y-métodos" class="section level3">
+<h3><strong>Materiales y métodos</strong></h3>
 <ol style="list-style-type: decimal">
 <li>Hojas con secuencias de los genes</li>
 <li>Hojas con las subsecuencias</li>
 <li>Marcadores de distintos colores</li>
 <li>Cinta adhesiva</li>
 </ol>
+</div>
 <div id="procedimiento-manual" class="section level3">
 <h3><strong>Procedimiento manual</strong></h3>
 <ol style="list-style-type: decimal">
@@ -426,9 +427,7 @@ secuencias &lt;- DNAStringSet(c(&quot;AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGT&
 
 # Subsecuecias a buscar
 subseqs &lt;- c(&quot;GGCTGACGCGT&quot;, &quot;CATGTCCTGCAT&quot;, &quot;TTGCTGATCTGCTACGTA&quot;, &quot;AGTGGCGATGACCCTGGAA&quot;,
-             &quot;AGGAAACACAGAAAAAAGCC&quot;, &quot;CCCGCGTCAGG&quot;, &quot;TGGGTAAGCAAATTCCA&quot;, &quot;AGTTTTGCGCTATGTTG&quot;,
-             &quot;TTTTC&quot;, &quot;CTGC&quot;, &quot;CCATCACCAT&quot;, &quot;AGTTCTTCA&quot;, &quot;CAAATTCCAGTG&quot;, &quot;AAACGCCCTGG&quot;,
-             &quot;GCCGCTGCCGTTGGTACTG&quot;, &quot;CCCTGGAAAA&quot;)
+             &quot;AGGAAACACAGAAAAAAGCC&quot;, &quot;CCCGCGTCAGG&quot;, &quot;TGGGTAAGCAAATTCCA&quot;, &quot;AGTTTTGCGCTATGTTG&quot;, &quot;TTTTC&quot;, &quot;CTGC&quot;, &quot;CCATCACCAT&quot;, &quot;AGTTCTTCA&quot;, &quot;CAAATTCCAGTG&quot;, &quot;AAACGCCCTGG&quot;, &quot;GCCGCTGCCGTTGGTACTG&quot;, &quot;CCCTGGAAAA&quot;)
 
 # Contar la abundancia de cada subsecuencia
 conteo &lt;- sapply(subseqs, function(subseq) sum(vcountPattern(subseq, secuencias)))
@@ -470,34 +469,44 @@ el cual se basó en que las subsecuencias con menor longitud tendían a
 aparecer en secuencias diferentes, mientras que las secuencias más
 largas aparecían solo en un gen.</h5>
 </div>
-<div id="cuál-es-el-impacto-del-tamaño-del-read-para-el-tanto-en-eficiencia-cómo-presición-del-mapeo" class="section level5">
-<h5><strong><em>1)</em></strong> <strong>¿Cuál es el impacto del tamaño
-del read para el tanto en eficiencia cómo presición del
-mapeo?</strong></h5>
-<p>Los reads más largos permiten un mapeo más preciso, pero requieren
-mayor tiempo de procesamiento. Por otro lado los reads más cortos pueden
-mapearse en múltiples posiciones, generando ambigüedades.</p>
+<div id="como-se-mencionó-anteriormente-la-longitud-de-las-subsecuencias-tenía-influencia-en-la-frecuencia-en-que-estas-estaban-distribuidas-en-todas-las-secuencias-de-genes-de-manera-que-los-reads-más-largos-permiten-un-mapeo-más-preciso-pero-requieren-mayor-tiempo-de-procesamiento-esto-se-reflejado-en-que-las-subsecuencias-más-largas-coinciden-en-ser-aquellas-que-solo-están-presentes-en-una-sola-secuencia-de-gen-por-otro-lado-los-reads-más-cortos-pueden-mapearse-en-múltiples-posiciones-de-manera-ágil-pero-a-la-vez-se-generan-ambigüedades-ya-que-al-ser-fragmentos-tan-pequeños-en-comparación-a-aquellos-que-son-de-un-único-gen-pueden-estar-sobrelapados-con-las-subsecuencias-largas-generando-confusión-en-el-análisis-ya-que-no-se-sabe-que-hacer-con-esas-lecturas-descartarlas-o-mantenerlas." class="section level5">
+<h5>Como se mencionó anteriormente, la longitud de las subsecuencias
+tenía influencia en la frecuencia en que estas estaban distribuidas en
+todas las secuencias de genes de manera que los reads más largos
+permiten un mapeo más preciso, pero requieren mayor tiempo de
+procesamiento, esto se reflejado en que las subsecuencias más largas
+coinciden en ser aquellas que solo están presentes en una sola secuencia
+de gen, por otro lado los reads más cortos pueden mapearse en múltiples
+posiciones de manera ágil, pero a la vez se generan ambigüedades ya que
+al ser fragmentos tan pequeños en comparación a aquellos que son de un
+único gen, pueden estar sobrelapados con las subsecuencias largas,
+generando confusión en el análisis ya que no se sabe que hacer con esas
+lecturas, descartarlas o mantenerlas.</h5>
 </div>
-<div id="cuál-es-el-impacto-de-los-tamaños-de-los-genes-para-la-evaluación-de-la-expresión-génica" class="section level5">
-<h5><em>2)</em> Cuál es el impacto de los tamaños de los genes para la
-evaluación de la expresión génica?</h5>
-<p>Los genes más largos tienen mayor cobertura, facilitando su
-cuantificación. Los genes más cortos pueden tener menor precisión en su
-expresión.</p>
-</div>
-<div id="existen-mapeos-ambiguos-como-pueden-darse-este-tipo-de-mapeos" class="section level5">
-<h5><em>3)</em> Existen mapeos ambiguos? como pueden darse este tipo de
-mapeos</h5>
-<p>Ocurren cuando una subsecuencia se encuentra en múltiples
-posiciones</p>
-</div>
+<div id="la-tabla-1-es-una-simulación-de-lo-que-se-realizó-en-la-práctica-y-sus-resultados-ejemplifican-los-argumentos-que-hemos-utilizado-los-cuales-son-que-las-subsecuencias-cortas-van-a-aparecer-con-mayor-frecuencia-que-las-secuencias-largas-esto-es-claro-al-ver-los-ejemplos-de-las-subsecuencias-ctgc-y-ttttc-las-cuales-de-acuerdo-a-los-resultados-están-presentes-dos-veces-mientras-que-la-mayoría-no-está-dentro-de-la-secuencia-ni-una-sola-vez.-a-pesar-de-ser-una-simulación-limitada-a-una-sola-secuencia-de-referencia-sus-resultados-son-de-gran-ayuda-para-ejemplificar-de-manera-sencilla-los-resultados-de-esta-práctica." class="section level5">
+<h5>La <strong><em>tabla 1</em></strong> es una simulación de lo que se
+realizó en la práctica y sus resultados ejemplifican los argumentos que
+hemos utilizado, los cuales son que las subsecuencias cortas van a
+aparecer con mayor frecuencia que las secuencias largas, esto es claro
+al ver los ejemplos de las subsecuencias <em>“CTGC”</em> y
+<em>TTTTC</em> las cuales de acuerdo a los resultados, están presentes
+dos veces, mientras que la mayoría no está dentro de la secuencia ni una
+sola vez. A pesar de ser una simulación limitada a una sola secuencia de
+referencia, sus resultados son de gran ayuda para ejemplificar de manera
+sencilla los resultados de esta práctica.</h5>
 </div>
 </div>
-<div id="conclusión" class="section level2">
-<h2>Conclusión</h2>
-<p>La identificación manual de secuencias es factible, pero ineficiente.
-Herramientas computacionales permiten una cuantificación más precisa y
-rápida de la expresión génica.</p>
+<div id="conclusión" class="section level3">
+<h3><strong>Conclusión</strong></h3>
+<div id="la-identificación-manual-de-secuencias-es-factible-pero-ineficiente-debido-a-que-hay-un-alto-porcentaje-de-cometer-errores-por-parte-del-analista-pasar-por-alto-una-letra-o-registrar-subsecuencias-válidas-cuando-estas-están-sobrelapadas-con-subsecuencias-largas.-es-por-lo-anterior-que-las-herramientas-computacionales-como-r-permiten-una-cuantificación-más-precisa-y-rápida-de-la-expresión-génica-evitando-errores-humanos-en-el-procedimiento." class="section level5">
+<h5>La identificación manual de secuencias es factible, pero ineficiente
+debido a que hay un alto porcentaje de cometer errores por parte del
+analista, pasar por alto una letra o registrar subsecuencias válidas
+cuando estas están sobrelapadas con subsecuencias largas. Es por lo
+anterior que las herramientas computacionales como R permiten una
+cuantificación más precisa y rápida de la expresión génica evitando
+errores humanos en el procedimiento.</h5>
+</div>
 </div>
 </div>
 
