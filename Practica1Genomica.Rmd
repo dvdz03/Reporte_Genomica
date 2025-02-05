@@ -7,21 +7,19 @@ output: html_document
 
 ### **Resultados**
 
-![**Figura 1. Gen 1 con sus subsecuencias correspondientes**](C:/Users/100032608/OneDrive/Imágenes/practica1rob.jpg) 
+![**Figura 1. Gen 1 con sus subsecuencias correspondientes**](C:/Users/100032608/OneDrive/Imágenes/practica1rob.jpg){width=50% height=50%}
 
+![**Figura 2. Gen 4 con sus subsecuencias correspondientes**](C:/Users/100032608/OneDrive/Imágenes/practica4rob.jpg){width=80% height=80%}
 
-![**Figura 2. Gen 4 con sus subsecuencias correspondientes**](C:/Users/100032608/OneDrive/Imágenes/practica4rob.jpg) 
+![**Figura 3. Subsecuencias que pertenecían a múltiples genes**](C:/Users/100032608/OneDrive/Imágenes/mezclados.jpg){width=65% height=65%}
 
-![**Figura 3. Subsecuencias que pertenecían a múltiples genes**](C:/Users/100032608/OneDrive/Imágenes/mezclados.jpg)
-
-### **Discusión** 
+### **Discusión**
 
 ##### *1)* Cuál es el impacto del tamaño del read para el tanto en eficiencia cómo presición del mapeo?
 
 ##### *2)* Cuál es el impacto de los tamaños de los genes para la evaluación de la expresión génica?
 
 ##### *3)* Existen mpaeos ambiguos? como pueden darse este tipo de mapeos
-
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
