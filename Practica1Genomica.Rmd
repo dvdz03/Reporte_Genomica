@@ -23,6 +23,30 @@ En esta práctica se realizó un ejercicio manual de mapeo de secuencias de RNA 
 
 ### **Resultados**
 
+```{r, echo=FALSE, out.width="65%", fig.align="center"}
+figura1<- c("practica1rob.jpg")
+
+knitr::include_graphics(figura1)
+```
+
+```{r, echo=FALSE, out.width="65%", fig.align="center"}
+figura2<- c("practica2rob.jpg")
+
+knitr::include_graphics(figura2)
+```
+
+```{r, echo=FALSE, out.width="65%", fig.align="center"}
+figura3<- c("practica3rob.jpg")
+
+knitr::include_graphics(figura3)
+```
+
+```{r, echo=FALSE, out.width="65%", fig.align="center"}
+figura4<- c("final.jpg")
+
+knitr::include_graphics(figura4)
+```
+
 ![**Figura 1.** Secuencia del primer gen, en donde se adjuntan todas las subsecuencias que resultaron ser lecturas únicas para ese gen](practica1rob.jpg){width=65% height=65%}
 
 
