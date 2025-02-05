@@ -5,10 +5,15 @@ date: "2025-02-04"
 output: html_document
 ---
 
-# Introducción 
-En esta práctica se realizó un ejercicio manual de mapeo de secuencias de RNA contra un conjunto de read impresos. Se comparó la eficiencia de este método con el método que podríamos utilizar en R. 
+# **Introducción** 
+En esta práctica se realizó un ejercicio manual de mapeo de secuencias de RNA contra un conjunto de reads impresos. Se comparó la eficiencia de este método con el método que podríamos utilizar en R. 
 
-## Materiales y métodos 
+## **Materiales y métodos** 
+1. Hojas con secuencias de los genes
+2. Hojas con las subsecuencias
+3. Marcadores de distintos colores
+4. Cinta adhesiva
+
 ### **Procedimiento manual**
 1. Se recibieron hojas impresas con secuencias. 
 2. Se identificaron las subsecuencias dentro de los reads.
@@ -16,20 +21,23 @@ En esta práctica se realizó un ejercicio manual de mapeo de secuencias de RNA 
 
 ### **Resultados**
 
-![**Figura 1. Gen 1 con sus subsecuencias correspondientes**](practica1rob.jpg){width=65% height=65%}
+![**Figura 1.** Secuencia del primer gen, en donde se adjuntan todas las subsecuencias que resultaron ser lecturas únicas para ese gen](practica1rob.jpg){width=65% height=65%}
 
 
-![**Figura 2. Gen 4 con sus subsecuencias correspondientes**](practica4rob.jpg){width=80% height=80%}
+![**Figura 2.** Secuencia del gen 4, con las subsecuencias que de acuerdo a la búsqueda fueron exclusivas de esa secuencia](practica4rob.jpg){width=65% height=65%}
 
 
-![**Figura 3. Subsecuencias que pertenecían a múltiples genes**](mezclados.jpg){width=65% height=65%}
+![**Figura 3.** Subsecuencias marcadas con varios colores, refiriendose a que coinciden con más de un gen](mezclados.jpg){width=65% height=65%}
+
+
+![**Figura 4.** Resultado final de la práctica, los pedazos de papel más grandes son las secuencias de genes, debajo están pegadas todas las subsecuencias pertenecientes a ellos.](final.jpg)
 
 ### **Discusión**
 
-##### A lo largo del análisis realizado, nos percatamos que varias de las subsecuencias proporcionadas no correspondían a ningún gen y por el contrario había algunas otras que pertenecían a varios genes *(Figura 3)* 
+#####  En la realización de la práctica se utilizaron marcadores de colores para identificar las secuencias de genes y de igual manera para las subsecuencias correspondientes. A lo largo del análisis realizado, nos percatamos de que varias de las subsecuencias proporcionadas no correspondían a ningún gen, esto es apreciable en la ***figura 4*** en donde dichas subsecuencias están en la mesa de madera debajo del pizarrón, por otro lado, hubo muchas secuencias más que coincidieron con la secuencia de varios genes ***(figura 3)***. Después de estos hallazgos fue reconocible un patrón, el cual se basó en que las subsecuencias con menor longitud tendían a aparecer en secuencias diferentes, mientras que las secuencias más largas aparecían solo en un gen.
 
 
-##### *1)* Cuál es el impacto del tamaño del read para el tanto en eficiencia cómo presición del mapeo?
+##### ***1)*** **¿Cuál es el impacto del tamaño del read para el tanto en eficiencia cómo presición del mapeo?**
 
 Los reads más largos permiten un mapeo más preciso, pero requieren mayor tiempo de procesamiento. Por otro lado los reads más cortos pueden mapearse en múltiples posiciones, generando ambigüedades.
 
