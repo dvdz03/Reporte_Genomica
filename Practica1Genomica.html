@@ -412,47 +412,9 @@ ellos.</div>
 <p>Este es un ejemplo básico para hacer una tabla de abundancia de el
 pdf que nos proporcionaron. Pero no pudimos poner todas las secuencias,
 solo pusimos el primer párrafo y seleccionamos pocas subsecuencias</p>
-<pre class="r"><code>library(Biostrings)</code></pre>
-<pre><code>## Cargando paquete requerido: BiocGenerics</code></pre>
-<pre><code>## 
-## Adjuntando el paquete: &#39;BiocGenerics&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     IQR, mad, sd, var, xtabs</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     anyDuplicated, aperm, append, as.data.frame, basename, cbind,
-##     colnames, dirname, do.call, duplicated, eval, evalq, Filter, Find,
-##     get, grep, grepl, intersect, is.unsorted, lapply, Map, mapply,
-##     match, mget, order, paste, pmax, pmax.int, pmin, pmin.int,
-##     Position, rank, rbind, Reduce, rownames, sapply, setdiff, table,
-##     tapply, union, unique, unsplit, which.max, which.min</code></pre>
-<pre><code>## Cargando paquete requerido: S4Vectors</code></pre>
-<pre><code>## Warning: package &#39;S4Vectors&#39; was built under R version 4.4.1</code></pre>
-<pre><code>## Cargando paquete requerido: stats4</code></pre>
-<pre><code>## 
-## Adjuntando el paquete: &#39;S4Vectors&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:utils&#39;:
-## 
-##     findMatches</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     expand.grid, I, unname</code></pre>
-<pre><code>## Cargando paquete requerido: IRanges</code></pre>
-<pre><code>## Warning: package &#39;IRanges&#39; was built under R version 4.4.1</code></pre>
-<pre><code>## 
-## Adjuntando el paquete: &#39;IRanges&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:grDevices&#39;:
-## 
-##     windows</code></pre>
-<pre><code>## Cargando paquete requerido: XVector</code></pre>
-<pre><code>## Cargando paquete requerido: GenomeInfoDb</code></pre>
-<pre><code>## 
-## Adjuntando el paquete: &#39;Biostrings&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:base&#39;:
-## 
-##     strsplit</code></pre>
-<pre class="r"><code># Secuencias de RNA en formato DNAStringSet
+<pre class="r"><code>library(Biostrings)
+
+# Secuencias de RNA en formato DNAStringSet
 secuencias &lt;- DNAStringSet(c(&quot;AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGT&quot;,
                              &quot;GGATTAAAAAAAGAGTGTCTGATAGCAGCTTCTGAACTG&quot;,
                              &quot;GTTACCTGCCGTGAGTAAATTAAAATTTTATTGACTTAGGTC&quot;,
