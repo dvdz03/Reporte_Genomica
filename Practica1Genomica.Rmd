@@ -5,6 +5,15 @@ date: "2025-02-04"
 output: html_document
 ---
 
+# Introducción 
+En esta práctica se realizó un ejercicio manual de mapeo de secuencias de RNA contra un conjunto de read impresos. Se comparó la eficiencia de este método con el método que podríamos utilizar en R. 
+
+## Materiales y métodos 
+### **Procedimiento manual**
+1. Se recibieron hojas impresas con secuencias. 
+2. Se identificaron las subsecuencias dentro de los reads.
+3. Se contó la frecuencia de cada subsecuencia. 
+
 ### **Resultados**
 
 ![**Figura 1. Gen 1 con sus subsecuencias correspondientes**](practica1rob.jpg){width=65% height=65%}
@@ -19,26 +28,18 @@ output: html_document
 
 ##### A lo largo del análisis realizado, nos percatamos que varias de las subsecuencias proporcionadas no correspondían a ningún gen y por el contrario había algunas otras que pertenecían a varios genes *(Figura 3)* 
 
+
 ##### *1)* Cuál es el impacto del tamaño del read para el tanto en eficiencia cómo presición del mapeo?
+
+Los reads más largos permiten un mapeo más preciso, pero requieren mayor tiempo de procesamiento. Por otro lado los reads más cortos pueden mapearse en múltiples posiciones, generando ambigüedades.
 
 ##### *2)* Cuál es el impacto de los tamaños de los genes para la evaluación de la expresión génica?
 
-##### *3)* Existen mpaeos ambiguos? como pueden darse este tipo de mapeos
+Los genes más largos tienen mayor cobertura, facilitando su cuantificación. Los genes más cortos pueden tener menor precisión en su expresión.
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+##### *3)* Existen mapeos ambiguos? como pueden darse este tipo de mapeos
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+Ocurren cuando una subsecuencia se encuentra en múltiples posiciones 
 
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## Conclusión 
+La identificación manual de secuencias es factible, pero ineficiente. Herramientas computacionales permiten una cuantificación más precisa y rápida de la expresión génica.
