@@ -2,7 +2,9 @@
 title: "Práctica 1 Genómica Funcional"
 author: "David Flores, Daniela Villanueva, Estrella Segobia"
 date: "2025-02-04"
-output: html_document
+output: 
+html_document: 
+    theme: simplex
 ---
 
 # **Introducción** 
