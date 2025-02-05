@@ -407,6 +407,91 @@ debajo están pegadas todas las subsecuencias pertenecientes a
 ellos.</div>
 </div>
 </div>
+<div id="ejemplo-de-un-script-en-r" class="section level3">
+<h3>Ejemplo de un script en R</h3>
+<p>Este es un ejemplo básico para hacer una tabla de abundancia de el
+pdf que nos proporcionaron. Pero no pudimos poner todas las secuencias,
+solo pusimos el primer párrafo y seleccionamos pocas subsecuencias</p>
+<pre class="r"><code>library(Biostrings)</code></pre>
+<pre><code>## Cargando paquete requerido: BiocGenerics</code></pre>
+<pre><code>## 
+## Adjuntando el paquete: &#39;BiocGenerics&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     IQR, mad, sd, var, xtabs</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     anyDuplicated, aperm, append, as.data.frame, basename, cbind,
+##     colnames, dirname, do.call, duplicated, eval, evalq, Filter, Find,
+##     get, grep, grepl, intersect, is.unsorted, lapply, Map, mapply,
+##     match, mget, order, paste, pmax, pmax.int, pmin, pmin.int,
+##     Position, rank, rbind, Reduce, rownames, sapply, setdiff, table,
+##     tapply, union, unique, unsplit, which.max, which.min</code></pre>
+<pre><code>## Cargando paquete requerido: S4Vectors</code></pre>
+<pre><code>## Warning: package &#39;S4Vectors&#39; was built under R version 4.4.1</code></pre>
+<pre><code>## Cargando paquete requerido: stats4</code></pre>
+<pre><code>## 
+## Adjuntando el paquete: &#39;S4Vectors&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:utils&#39;:
+## 
+##     findMatches</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     expand.grid, I, unname</code></pre>
+<pre><code>## Cargando paquete requerido: IRanges</code></pre>
+<pre><code>## Warning: package &#39;IRanges&#39; was built under R version 4.4.1</code></pre>
+<pre><code>## 
+## Adjuntando el paquete: &#39;IRanges&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:grDevices&#39;:
+## 
+##     windows</code></pre>
+<pre><code>## Cargando paquete requerido: XVector</code></pre>
+<pre><code>## Cargando paquete requerido: GenomeInfoDb</code></pre>
+<pre><code>## 
+## Adjuntando el paquete: &#39;Biostrings&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     strsplit</code></pre>
+<pre class="r"><code># Secuencias de RNA en formato DNAStringSet
+secuencias &lt;- DNAStringSet(c(&quot;AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGT&quot;,
+                             &quot;GGATTAAAAAAAGAGTGTCTGATAGCAGCTTCTGAACTG&quot;,
+                             &quot;GTTACCTGCCGTGAGTAAATTAAAATTTTATTGACTTAGGTC&quot;,
+                             &quot;ACTAAATACTTTAACCAATATAGGCATAGCGCACAGAC&quot;,
+                             &quot;AGATAAAAATTACAGAGTACACAACATCCATGAAACGCATTA&quot;,
+                             &quot;GCACCACCATTACCACCACCATCACCATTACCACAGGT&quot;,
+                             &quot;AACGGTGCGGGCTGACGCGTACAGGAAACACAGAAAAAA&quot;,
+                             &quot;GCCCGCACCTGACAGTGCGGGCTTTTTTTTTCGACCAAAGG&quot;))
+
+# Subsecuecias a buscar
+subseqs &lt;- c(&quot;GGCTGACGCGT&quot;, &quot;CATGTCCTGCAT&quot;, &quot;TTGCTGATCTGCTACGTA&quot;, &quot;AGTGGCGATGACCCTGGAA&quot;,
+             &quot;AGGAAACACAGAAAAAAGCC&quot;, &quot;CCCGCGTCAGG&quot;, &quot;TGGGTAAGCAAATTCCA&quot;, &quot;AGTTTTGCGCTATGTTG&quot;,
+             &quot;TTTTC&quot;, &quot;CTGC&quot;, &quot;CCATCACCAT&quot;, &quot;AGTTCTTCA&quot;, &quot;CAAATTCCAGTG&quot;, &quot;AAACGCCCTGG&quot;,
+             &quot;GCCGCTGCCGTTGGTACTG&quot;, &quot;CCCTGGAAAA&quot;)
+
+# Contar la abundancia de cada subsecuencia
+conteo &lt;- sapply(subseqs, function(subseq) sum(vcountPattern(subseq, secuencias)))
+
+# Crear tabla de abundancia
+tabla_abundancia &lt;- data.frame(Subsecuencia = names(conteo), Frecuencia = conteo)
+print(tabla_abundancia)</code></pre>
+<pre><code>##                              Subsecuencia Frecuencia
+## GGCTGACGCGT                   GGCTGACGCGT          1
+## CATGTCCTGCAT                 CATGTCCTGCAT          0
+## TTGCTGATCTGCTACGTA     TTGCTGATCTGCTACGTA          0
+## AGTGGCGATGACCCTGGAA   AGTGGCGATGACCCTGGAA          0
+## AGGAAACACAGAAAAAAGCC AGGAAACACAGAAAAAAGCC          0
+## CCCGCGTCAGG                   CCCGCGTCAGG          0
+## TGGGTAAGCAAATTCCA       TGGGTAAGCAAATTCCA          0
+## AGTTTTGCGCTATGTTG       AGTTTTGCGCTATGTTG          0
+## TTTTC                               TTTTC          2
+## CTGC                                 CTGC          2
+## CCATCACCAT                     CCATCACCAT          1
+## AGTTCTTCA                       AGTTCTTCA          0
+## CAAATTCCAGTG                 CAAATTCCAGTG          0
+## AAACGCCCTGG                   AAACGCCCTGG          0
+## GCCGCTGCCGTTGGTACTG   GCCGCTGCCGTTGGTACTG          0
+## CCCTGGAAAA                     CCCTGGAAAA          0</code></pre>
+</div>
 <div id="discusión" class="section level3">
 <h3><strong>Discusión</strong></h3>
 <div id="en-la-realización-de-la-práctica-se-utilizaron-marcadores-de-colores-para-identificar-las-secuencias-de-genes-y-de-igual-manera-para-las-subsecuencias-correspondientes.-a-lo-largo-del-análisis-realizado-nos-percatamos-de-que-varias-de-las-subsecuencias-proporcionadas-no-correspondían-a-ningún-gen-esto-es-apreciable-en-la-figura-4-en-donde-dichas-subsecuencias-están-en-la-mesa-de-madera-debajo-del-pizarrón-por-otro-lado-hubo-muchas-secuencias-más-que-coincidieron-con-la-secuencia-de-varios-genes-figura-3.-después-de-estos-hallazgos-fue-reconocible-un-patrón-el-cual-se-basó-en-que-las-subsecuencias-con-menor-longitud-tendían-a-aparecer-en-secuencias-diferentes-mientras-que-las-secuencias-más-largas-aparecían-solo-en-un-gen." class="section level5">

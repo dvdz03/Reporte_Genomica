@@ -32,6 +32,37 @@ En esta práctica se realizó un ejercicio manual de mapeo de secuencias de RNA 
 
 ![**Figura 4.** Resultado final de la práctica, los pedazos de papel más grandes son las secuencias de genes, debajo están pegadas todas las subsecuencias pertenecientes a ellos.](final.jpg)
 
+### Ejemplo de un script en R 
+Este es un ejemplo básico para hacer una tabla de abundancia de el pdf que nos proporcionaron. Pero no pudimos poner todas las secuencias, solo pusimos el primer párrafo y seleccionamos pocas subsecuencias 
+
+```{r message=FALSE, warning=FALSE}
+library(Biostrings)
+
+# Secuencias de RNA en formato DNAStringSet
+secuencias <- DNAStringSet(c("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGT",
+                             "GGATTAAAAAAAGAGTGTCTGATAGCAGCTTCTGAACTG",
+                             "GTTACCTGCCGTGAGTAAATTAAAATTTTATTGACTTAGGTC",
+                             "ACTAAATACTTTAACCAATATAGGCATAGCGCACAGAC",
+                             "AGATAAAAATTACAGAGTACACAACATCCATGAAACGCATTA",
+                             "GCACCACCATTACCACCACCATCACCATTACCACAGGT",
+                             "AACGGTGCGGGCTGACGCGTACAGGAAACACAGAAAAAA",
+                             "GCCCGCACCTGACAGTGCGGGCTTTTTTTTTCGACCAAAGG"))
+
+# Subsecuecias a buscar
+subseqs <- c("GGCTGACGCGT", "CATGTCCTGCAT", "TTGCTGATCTGCTACGTA", "AGTGGCGATGACCCTGGAA",
+             "AGGAAACACAGAAAAAAGCC", "CCCGCGTCAGG", "TGGGTAAGCAAATTCCA", "AGTTTTGCGCTATGTTG",
+             "TTTTC", "CTGC", "CCATCACCAT", "AGTTCTTCA", "CAAATTCCAGTG", "AAACGCCCTGG",
+             "GCCGCTGCCGTTGGTACTG", "CCCTGGAAAA")
+
+# Contar la abundancia de cada subsecuencia
+conteo <- sapply(subseqs, function(subseq) sum(vcountPattern(subseq, secuencias)))
+
+# Crear tabla de abundancia
+tabla_abundancia <- data.frame(Subsecuencia = names(conteo), Frecuencia = conteo)
+print(tabla_abundancia)
+```
+
+
 ### **Discusión**
 
 #####  En la realización de la práctica se utilizaron marcadores de colores para identificar las secuencias de genes y de igual manera para las subsecuencias correspondientes. A lo largo del análisis realizado, nos percatamos de que varias de las subsecuencias proporcionadas no correspondían a ningún gen, esto es apreciable en la ***figura 4*** en donde dichas subsecuencias están en la mesa de madera debajo del pizarrón, por otro lado, hubo muchas secuencias más que coincidieron con la secuencia de varios genes ***(figura 3)***. Después de estos hallazgos fue reconocible un patrón, el cual se basó en que las subsecuencias con menor longitud tendían a aparecer en secuencias diferentes, mientras que las secuencias más largas aparecían solo en un gen.
